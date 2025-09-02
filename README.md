@@ -47,56 +47,63 @@ Jika pengguna menekan Ctrl+C, program tidak langsung keluar.
 
 Akan muncul menu konfirmasi: jalankan ulang atau keluar dari program.
 
-#📝 Deskripsi Program interaktif.py
+=========================================================================================
+🎯 interaktif.py
 
-Program ini adalah sebuah alat bantu interaktif berbasis Python yang digunakan untuk mengatur, menormalkan, dan mengubah ekstensi file dalam sebuah folder secara otomatis. Program juga dapat memindahkan file video ke dalam sub-folder khusus agar lebih rapi.
-
-🔧 Fitur Utama
-
-Input Path Folder
-
-Program meminta pengguna untuk memasukkan path folder target.
-
-Folder yang dimasukkan akan divalidasi. Jika salah, pengguna diminta mengulang.
-
-Pemindaian File
-
-Semua file dalam folder (dan sub-folder) akan dipindai.
-
-Ditampilkan animasi spinner dan progress bar agar pengguna tahu status pemrosesan.
-
-Normalisasi Nama dan Ekstensi
-
-Program mendeteksi file dengan nama/ekstensi tidak standar (misalnya video001.mkv, gambar_123.jpeg, file.gif1).
-
-Ekstensi akan diperbaiki:
-
-File video → otomatis diubah ke .mp4.
-
-File GIF → tetap .gif (jika diaktifkan).
-
-File lain → diganti ke ekstensi default (.jpg).
-
-Manajemen Folder Video
-
-Jika opsi MOVE_TO_VIDEO_FOLDER = True, semua file video dipindahkan ke folder baru bernama video/ di dalam folder target.
-
-Menghindari Duplikasi Nama
-
-Jika nama file hasil konversi sudah ada, program akan menambahkan penomoran otomatis (contoh: video.mp4, video_1.mp4, video_2.mp4).
-
-Menu Setelah Selesai
-
-Setelah semua file diproses, pengguna diberikan dua pilihan:
-
-Memproses folder lain.
-
-Keluar dari program.
-
-User Experience
+Skrip Python interaktif untuk merapikan file media (gambar & video) dalam sebuah folder.
+Program ini akan menormalkan nama & ekstensi file, memindahkan video ke folder khusus, serta memberikan pengalaman interaktif dengan menu sederhana.
 
 Menampilkan logo ASCII saat dijalankan.
 
 Menggunakan ikon dan log status (✅, ❌, 📁, 🔍, dll.) untuk memudahkan pengguna memahami proses.
 
 Ada pesan kesalahan jika path salah atau file gagal diproses.
+
+✨ Fitur Utama
+
+🔍 Pemindaian otomatis semua file dalam folder & sub-folder.
+
+🖼 Normalisasi ekstensi file:
+
+Video → .mp4
+
+GIF → tetap .gif
+
+File lain → default .jpg
+
+📂 Manajemen folder video: semua file video bisa dipindahkan otomatis ke sub-folder video/.
+
+🛡 Cegah duplikasi nama: file yang sama otomatis diberi nomor urut (file.mp4, file_1.mp4, dst.).
+
+📊 Progress bar & animasi spinner untuk status proses.
+
+✅ Menu interaktif: pilih folder lain atau keluar setelah proses selesai.
+
+🎨 Tampilan terminal ramah pengguna dengan logo ASCII & ikon status (✅ ❌ 📁 🔍).
+
+⚙️ Cara Menggunakan
+
+Jalankan skrip:
+
+python interaktif.py
+
+
+Masukkan path folder yang ingin diproses.
+
+Contoh: C:\Users\Nama\Downloads atau /home/user/Downloads.
+
+Tunggu proses pemindaian & normalisasi selesai.
+
+Pilih apakah ingin memproses folder lain atau keluar dari program.
+
+🔧 Konfigurasi
+
+Beberapa opsi bisa diubah langsung di dalam skrip:
+
+DEFAULT_IMG_EXT = '.jpg' → Ekstensi default untuk file non-video/non-gif.
+
+MOVE_TO_VIDEO_FOLDER = True → Pindahkan video ke folder video/.
+
+KEEP_GIF_AS_GIF = True → Biarkan GIF tetap .gif (jika False, diubah ke .mp4).
+
+VIDEO_EXTS = {...} → Daftar ekstensi video yang dikenali.
