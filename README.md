@@ -1,6 +1,6 @@
-# 📦 Multi-Platform Media Downloader using Gallery-dl 
+# 📦 Multi-Platform Media Downloader using Gallery-dl
 
-**Professional Multi-Platform Media Downloader** – a powerful Windows batch script wrapper for `gallery-dl` featuring an interactive menu, automatic folder management, logging, and cookie support. Download media from Twitter, TikTok, YouTube, Instagram, Reddit, and many more.
+**Professional Multi-Platform Media Downloader** – a robust Windows batch script wrapper for `gallery-dl` featuring an interactive menu, automated folder management, session logging, and cookie support. Download media seamlessly from Twitter, TikTok, YouTube, Instagram, Reddit, and many other platforms.
 
 ![Batch](https://img.shields.io/badge/Windows-Batch_script-0078D6?style=flat&logo=windows&logoColor=white)
 ![gallery-dl](https://img.shields.io/badge/gallery--dl-powered-4CAF50?style=flat)
@@ -9,46 +9,82 @@
 
 ---
 
-## ✨ Key Features
+## Table of Contents
 
-- 🎯 **Multi-platform support** – Twitter/X, TikTok, YouTube, Instagram, Reddit, and any site supported by gallery-dl
-- 📁 **Auto‑organised folders** – Each platform gets its own subfolder under `Downloads/`
-- 🗂️ **Download archive** – Prevents duplicate downloads automatically
-- 🍪 **Cookie management** – Enables downloading private content (likes, saved posts, stories)
-- 📜 **Session logging** – Every run is logged with safe locale‑independent timestamps
-- ⚙️ **Configuration menu** – Reset archives, update gallery-dl, open folders, etc.
-- 🖥️ **Clean text UI** – Colour-coded, professional layout with sub‑menus
-- 🔁 **Retry & delay** – Built-in `--retries 3 --sleep 2-4` to avoid rate limits
+- [Key Features](#-key-features)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Cookie Configuration](#-cookie-configuration-for-private-content)
+- [Settings Menu](#️-settings-menu)
+- [Folder Structure](#-auto-created-folder-structure)
+- [Logging](#-logging)
+- [Important Notes](#⚠️-important-notes)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Credits](#-credits)
 
 ---
 
-## 🚀 Usage
+## ✨ Key Features
 
-### Prerequisites
+- **Multi‑platform support** – Twitter/X, TikTok, YouTube, Instagram, Reddit, and any site compatible with `gallery-dl`
+- **Auto‑organised folders** – Each platform stores downloads in a dedicated subfolder under `Downloads/`
+- **Download archive** – Prevents duplicate downloads automatically using archive files
+- **Cookie management** – Enables access to private content (likes, saved posts, stories)
+- **Session logging** – Every run is logged with locale‑independent timestamps
+- **Configuration menu** – Reset archives, update `gallery-dl`, open folders, view current settings
+- **Clean text‑based UI** – Colour‑coded, professional layout with intuitive sub‑menus
+- **Retry & delay** – Built‑in `--retries 3 --sleep 2-4` to avoid rate limiting
 
-1. **Windows** (7, 8, 10, 11)
-2. **gallery-dl** installed and available in PATH
-   - Install via pip: `pip install gallery-dl`
-   - Or download `gallery-dl.exe` from [releases](https://github.com/mikf/gallery-dl/releases) and place it in the same folder (or add to PATH)
-3. **Python** (if using pip) – Python 3.7+
+---
 
-### Installation
+## 📋 Prerequisites
+
+| Requirement | Details |
+|-------------|---------|
+| **Operating System** | Windows 7, 8, 10, or 11 |
+| **gallery-dl** | Installed and available in `PATH` (see below) |
+| **Python** (if using pip) | Python 3.7 or higher |
+
+### Installing gallery-dl
+
+You can install `gallery-dl` using either method:
 
 ```bash
+# Using pip (recommended)
+pip install gallery-dl
+
+# Or download the standalone executable
+# from https://github.com/mikf/gallery-dl/releases
+# Place gallery-dl.exe in the script folder or add to PATH
+
+## 🚀 Installation
+Clone the repository or download the batch file directly:
+
+bash
 git clone https://github.com/username/gallery-dl-ultimate-pro.git
 cd gallery-dl-ultimate-pro
-# Make sure gallery-dl is available, then run:
+Then simply run:
+
+bash
 Gallery-dl ULTIMATE Pro v2.0.bat
+No administrator rights are required under normal circumstances.
 
-Alternatively, simply place the .bat file anywhere and run it (no admin rights required normally).
-
+## 🖥️ Usage
 First Run
-The script will create Downloads, Config, and Logs folders.
+On first execution, the script automatically creates the following directories:
 
-Subfolders for each platform are created automatically.
+Downloads/ – main download folder
 
-If gallery-dl is not found, an error message is shown and the script exits.
+Config/ – stores archive files and cookies
 
+Logs/ – stores session logs
+
+If gallery-dl is not found, an error message is displayed and the script exits.
+
+Main Menu
+text
 +=========================================================+
 :         GALLERY-DL ULTIMATE PRO v2.0                    :
 :         Professional Media Downloader                    :
@@ -63,57 +99,49 @@ If gallery-dl is not found, an error message is shown and the script exits.
 :   [L]  View Download Logs                                :
 :   [Q]  Exit Program                                      :
 +=========================================================+
-
 Example: Twitter Manager
 After selecting 1, you will see a sub‑menu:
 
-Photos Only (JPG, PNG)
+[1] Photos Only (JPG, PNG)
 
-Videos Only (MP4, MOV)
+[2] Videos Only (MP4, MOV)
 
-All Media
+[3] All Media
 
-Liked Posts (requires cookies)
+[4] Liked Posts (requires cookies)
 
-User Timeline
+[5] User Timeline
 
-Twitter List
+[6] Twitter List
 
-Simply enter the URL or username, and the script will run gallery-dl with the appropriate parameters.
----
+Simply enter the URL or username, and the script executes gallery-dl with the appropriate parameters.
 
-## 🍪 Cookies (for private content)
-Some features (Liked Posts, Stories, Saved Posts) require authentication cookies.
+## 🍪 Cookie Configuration (for private content)
+Certain features (Liked Posts, Stories, Saved Posts) require authentication cookies.
 
-How to set up cookies:
+Setup Instructions
+Install the "Get cookies.txt LOCALLY" browser extension for Chrome or Firefox.
 
-Install the "Get cookies.txt LOCALLY" browser extension (Chrome/Firefox)
+Log into your account (Twitter, Instagram, TikTok, etc.).
 
-Log into your account (Twitter, Instagram, TikTok, etc.)
+Export cookies in Netscape format.
 
-Export cookies in Netscape format
-
-Save the file as Config\cookies.txt (or place it in the Config folder)
+Save the file as Config\cookies.txt (or place it inside the Config folder).
 
 Alternatively, use the Settings → Update / Set Cookie File menu to copy a cookie file from another location.
 
 ## 🛠️ Settings Menu
-Update / Set Cookie File – Manage cookies.txt
-
-Clear Download Archive – Delete all archive files (force re‑download everything)
-
-Check gallery-dl Version – Show installed version
-
-Update gallery-dl – Run pip install --upgrade gallery-dl
-
-Open Downloads Folder – Open Downloads in Explorer
-
-Open Config Folder – Open Config folder
-
-View Current Configuration – Show summary of paths, arguments, and archive status
----
+Option	Description
+Update / Set Cookie File	Manage cookies.txt
+Clear Download Archive	Delete all archive files (forces re‑download of all items)
+Check gallery-dl Version	Display the installed version of gallery-dl
+Update gallery-dl	Run pip install --upgrade gallery-dl
+Open Downloads Folder	Open Downloads in Windows Explorer
+Open Config Folder	Open Config folder
+View Current Configuration	Show summary of paths, arguments, and archive status
 
 ## 📂 Auto‑created Folder Structure
+text
 Gallery-dl ULTIMATE Pro v2.0/
 │
 ├── Gallery-dl ULTIMATE Pro v2.0.bat
@@ -147,43 +175,52 @@ Gallery-dl ULTIMATE Pro v2.0/
 │   └── ... (other archive files)
 │
 └── Logs/
-    └── session_20250423_1430.log
----
+    └── session_YYYYMMDD_HHMM.log
 
 ## 📜 Logging
-Every session is logged to Logs/session_YYYYMMDD_HHMM.log. Logs contain timestamps, download actions, and error messages.
+Every session is logged to Logs/session_YYYYMMDD_HHMM.log. Each log entry includes:
 
-View logs via the View Download Logs menu or by opening the Logs folder directly.
----
+Timestamp
+
+Download actions
+
+Error messages (if any)
+
+You can view logs via the View Download Logs menu or by opening the Logs folder directly.
 
 ## ⚠️ Important Notes
-This script is just a wrapper for gallery-dl. Please respect the gallery-dl license and the terms of service of each platform.
+This script is a wrapper for gallery-dl. Please respect the gallery-dl license and the Terms of Service of each platform.
 
-Use responsibly – do not excessively scrape or violate any platform's rules.
+Use responsibly – avoid excessive scraping or any activity that may violate platform rules.
 
-Some features (e.g., Instagram Stories) heavily depend on valid cookies and may break if the platform changes its layout.
+Some features (e.g., Instagram Stories) depend heavily on valid cookies and may break if the platform changes its layout or authentication mechanism.
 
 For gallery-dl specific issues, refer to the official documentation.
----
 
 ## 🤝 Contributing
-Feel free to fork, open issues, or submit pull requests. Ideas for improvement:
+Contributions are welcome! Feel free to:
 
-Support for more platforms (Pixiv, Flickr, DeviantArt)
+Fork the repository
+
+Open issues for bugs or feature requests
+
+Submit pull requests
+
+Suggested Enhancements
+Support for additional platforms (Pixiv, Flickr, DeviantArt)
 
 Simple GUI mode
 
-Integrate yt-dlp for richer YouTube features
+Integration with yt-dlp for richer YouTube features
 
 Multi‑threaded parallel downloads
----
 
 ## 📄 License
-MIT License – free to use and modify. However, you must comply with each platform's terms of service when downloading content.
----
+This project is licensed under the MIT License – free to use and modify. However, you must comply with each platform's Terms of Service when downloading content.
 
 ## 🙏 Credits
-gallery-dl – The core engine
----
+gallery-dl – The core download engine
 
-###Made with ❤️ for the digital archiving community
+Made with ❤️ for the digital archiving community
+
+For questions or support, please open an issue on GitHub.
