@@ -1,109 +1,181 @@
-# Gallery-dl
-Program Gallery-dl.py ini adalah sebuah wrapper sederhana berbasis Python yang berfungsi untuk mempermudah penggunaan tool gallery-dl (sebuah downloader konten dari berbagai platform seperti Twitter/X, Instagram, dan lain-lain).
+# 📦 Multi-Platform Media Downloader using Gallery-dl 
 
-📝 Deskripsi Program
+**Professional Multi-Platform Media Downloader** – a powerful Windows batch script wrapper for `gallery-dl` featuring an interactive menu, automatic folder management, logging, and cookie support. Download media from Twitter, TikTok, YouTube, Instagram, Reddit, and many more.
 
-Program ini dibuat untuk memberikan antarmuka menu interaktif di terminal agar pengguna dapat lebih mudah menjalankan perintah gallery-dl tanpa harus mengetik manual sintaks panjang.
+![Batch](https://img.shields.io/badge/Windows-Batch_script-0078D6?style=flat&logo=windows&logoColor=white)
+![gallery-dl](https://img.shields.io/badge/gallery--dl-powered-4CAF50?style=flat)
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Menu Utama
+---
 
-Menampilkan logo ASCII dan daftar opsi.
+## ✨ Key Features
 
-Pengguna dapat memilih platform:
+- 🎯 **Multi-platform support** – Twitter/X, TikTok, YouTube, Instagram, Reddit, and any site supported by gallery-dl
+- 📁 **Auto‑organised folders** – Each platform gets its own subfolder under `Downloads/`
+- 🗂️ **Download archive** – Prevents duplicate downloads automatically
+- 🍪 **Cookie management** – Enables downloading private content (likes, saved posts, stories)
+- 📜 **Session logging** – Every run is logged with safe locale‑independent timestamps
+- ⚙️ **Configuration menu** – Reset archives, update gallery-dl, open folders, etc.
+- 🖥️ **Clean text UI** – Colour-coded, professional layout with sub‑menus
+- 🔁 **Retry & delay** – Built-in `--retries 3 --sleep 2-4` to avoid rate limits
 
-1. X.com (Twitter) → Unduh media dari akun Twitter/X.
+---
 
-2. Instagram.com → Unduh media dari akun Instagram.
+## 🚀 Usage
 
-3. URL manual → Memasukkan link langsung atau perintah kustom.
+### Prerequisites
 
-4. Keluar → Menghentikan program.
+1. **Windows** (7, 8, 10, 11)
+2. **gallery-dl** installed and available in PATH
+   - Install via pip: `pip install gallery-dl`
+   - Or download `gallery-dl.exe` from [releases](https://github.com/mikf/gallery-dl/releases) and place it in the same folder (or add to PATH)
+3. **Python** (if using pip) – Python 3.7+
 
-Proses Eksekusi
+### Installation
 
-Program menerima input pengguna (username atau URL).
+```bash
+git clone https://github.com/username/gallery-dl-ultimate-pro.git
+cd gallery-dl-ultimate-pro
+# Make sure gallery-dl is available, then run:
+Gallery-dl ULTIMATE Pro v2.0.bat
 
-Membentuk perintah lengkap untuk menjalankan gallery-dl dengan subprocess.run().
+Alternatively, simply place the .bat file anywhere and run it (no admin rights required normally).
 
-Menangani kemungkinan error, seperti:
+First Run
+The script will create Downloads, Config, and Logs folders.
 
-gallery-dl belum terinstal / tidak ada di PATH.
+Subfolders for each platform are created automatically.
 
-Username atau URL salah.
+If gallery-dl is not found, an error message is shown and the script exits.
 
-Error tak terduga lainnya.
++=========================================================+
+:         GALLERY-DL ULTIMATE PRO v2.0                    :
+:         Professional Media Downloader                    :
++=========================================================+
+:   [1]  Twitter / X Manager                               :
+:   [2]  TikTok Manager                                    :
+:   [3]  YouTube Manager                                   :
+:   [4]  Instagram Manager                                 :
+:   [5]  Reddit Manager                                    :
+:   [6]  Generic URL Download                              :
+:   [S]  Settings and Configuration                        :
+:   [L]  View Download Logs                                :
+:   [Q]  Exit Program                                      :
++=========================================================+
 
-Menu Setelah Unduhan
+Example: Twitter Manager
+After selecting 1, you will see a sub‑menu:
 
-Setelah perintah selesai, muncul pilihan:
+Photos Only (JPG, PNG)
 
-1. Jalankan lagi → Kembali ke menu utama.
+Videos Only (MP4, MOV)
 
-2. Keluar → Mengakhiri program.
+All Media
 
-Penanganan Ctrl+C (SIGINT)
+Liked Posts (requires cookies)
 
-Jika pengguna menekan Ctrl+C, program tidak langsung keluar.
+User Timeline
 
-Akan muncul menu konfirmasi: jalankan ulang atau keluar dari program.
+Twitter List
 
-=========================================================================================
-🎯 interaktif.py
+Simply enter the URL or username, and the script will run gallery-dl with the appropriate parameters.
 
-Skrip Python interaktif untuk merapikan file media (gambar & video) dalam sebuah folder.
-Program ini akan menormalkan nama & ekstensi file, memindahkan video ke folder khusus, serta memberikan pengalaman interaktif dengan menu sederhana.
+🍪 Cookies (for private content)
+Some features (Liked Posts, Stories, Saved Posts) require authentication cookies.
 
-Menampilkan logo ASCII saat dijalankan.
+How to set up cookies:
 
-Menggunakan ikon dan log status (✅, ❌, 📁, 🔍, dll.) untuk memudahkan pengguna memahami proses.
+Install the "Get cookies.txt LOCALLY" browser extension (Chrome/Firefox)
 
-Ada pesan kesalahan jika path salah atau file gagal diproses.
+Log into your account (Twitter, Instagram, TikTok, etc.)
 
-✨ Fitur Utama
+Export cookies in Netscape format
 
-🔍 Pemindaian otomatis semua file dalam folder & sub-folder.
+Save the file as Config\cookies.txt (or place it in the Config folder)
 
-🖼 Normalisasi ekstensi file:
+Alternatively, use the Settings → Update / Set Cookie File menu to copy a cookie file from another location.
 
-Video → .mp4
+🛠️ Settings Menu
+Update / Set Cookie File – Manage cookies.txt
 
-GIF → tetap .gif
+Clear Download Archive – Delete all archive files (force re‑download everything)
 
-File lain → default .jpg
+Check gallery-dl Version – Show installed version
 
-📂 Manajemen folder video: semua file video bisa dipindahkan otomatis ke sub-folder video/.
+Update gallery-dl – Run pip install --upgrade gallery-dl
 
-🛡 Cegah duplikasi nama: file yang sama otomatis diberi nomor urut (file.mp4, file_1.mp4, dst.).
+Open Downloads Folder – Open Downloads in Explorer
 
-📊 Progress bar & animasi spinner untuk status proses.
+Open Config Folder – Open Config folder
 
-✅ Menu interaktif: pilih folder lain atau keluar setelah proses selesai.
+View Current Configuration – Show summary of paths, arguments, and archive status
 
-🎨 Tampilan terminal ramah pengguna dengan logo ASCII & ikon status (✅ ❌ 📁 🔍).
+📂 Auto‑created Folder Structure
+Gallery-dl ULTIMATE Pro v2.0/
+│
+├── Gallery-dl ULTIMATE Pro v2.0.bat
+│
+├── Downloads/
+│   ├── Twitter/
+│   │   ├── Liked/
+│   │   └── Lists/
+│   ├── TikTok/
+│   │   ├── Liked/
+│   │   └── Tags/
+│   ├── YouTube/
+│   │   ├── Playlists/
+│   │   ├── Channels/
+│   │   └── Shorts/
+│   ├── Instagram/
+│   │   ├── Stories/
+│   │   ├── Reels/
+│   │   └── Saved/
+│   ├── Reddit/
+│   │   ├── Subreddits/
+│   │   └── Users/
+│   └── Other/
+│
+├── Config/
+│   ├── cookies.txt
+│   ├── twitter_arch.txt
+│   ├── tiktok_arch.txt
+│   ├── youtube_arch.txt
+│   ├── instagram_arch.txt
+│   └── ... (other archive files)
+│
+└── Logs/
+    └── session_20250423_1430.log
 
-⚙️ Cara Menggunakan
+📜 Logging
+Every session is logged to Logs/session_YYYYMMDD_HHMM.log. Logs contain timestamps, download actions, and error messages.
 
-Jalankan skrip:
+View logs via the View Download Logs menu or by opening the Logs folder directly.
 
-python interaktif.py
+⚠️ Important Notes
+This script is just a wrapper for gallery-dl. Please respect the gallery-dl license and the terms of service of each platform.
 
+Use responsibly – do not excessively scrape or violate any platform's rules.
 
-Masukkan path folder yang ingin diproses.
+Some features (e.g., Instagram Stories) heavily depend on valid cookies and may break if the platform changes its layout.
 
-Contoh: C:\Users\Nama\Downloads atau /home/user/Downloads.
+For gallery-dl specific issues, refer to the official documentation.
 
-Tunggu proses pemindaian & normalisasi selesai.
+🤝 Contributing
+Feel free to fork, open issues, or submit pull requests. Ideas for improvement:
 
-Pilih apakah ingin memproses folder lain atau keluar dari program.
+Support for more platforms (Pixiv, Flickr, DeviantArt)
 
-🔧 Konfigurasi
+Simple GUI mode
 
-Beberapa opsi bisa diubah langsung di dalam skrip:
+Integrate yt-dlp for richer YouTube features
 
-DEFAULT_IMG_EXT = '.jpg' → Ekstensi default untuk file non-video/non-gif.
+Multi‑threaded parallel downloads
 
-MOVE_TO_VIDEO_FOLDER = True → Pindahkan video ke folder video/.
+📄 License
+MIT License – free to use and modify. However, you must comply with each platform's terms of service when downloading content.
 
-KEEP_GIF_AS_GIF = True → Biarkan GIF tetap .gif (jika False, diubah ke .mp4).
+🙏 Credits
+gallery-dl – The core engine
 
-VIDEO_EXTS = {...} → Daftar ekstensi video yang dikenali.
+Made with ❤️ for the digital archiving community
